@@ -15,7 +15,7 @@ void rebound(void);
 void main (void){
    setup_oscillator(OSC_16MHZ);
    setup_adc_ports(NO_ANALOGS);
-   set_tris_a(0x10);
+   set_tris_a(0x20);
    set_tris_b(0xff);
    set_tris_c(0x00);
    set_tris_d(0xff);
@@ -66,7 +66,7 @@ void main (void){
 void rebound(void){
    long Error = 0x0;
    for(int parpadeo = 1; parpadeo < 4; parpadeo++){
-       Error = 0x1fff;
+       Error = 0xffff;
        output_c(Error);
        output_a(Error>>8);
        delay_ms(250);
